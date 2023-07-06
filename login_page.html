@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <title>Login</title>
+  <style>
+    body {
+      background-color: #242424;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: #2c2a2a;
+      color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    h1 {
+      color: #00b9b9;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="password"] {
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      width: 200px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #00b9b9;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #009a9a;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login</h1>
+    <form id="loginForm" onsubmit="submitForm(event)">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <br><br>
+      <label for="guest">Continue as a guest:</label>
+      <input type="checkbox" id="guest" name="guest" onchange="updateFields()">
+      <br><br>
+      <label for="register">register:</label>
+      <input type="checkbox" id="register" name="register" onchange="updateFields()">
+      <br><br>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    var username = "";
+
+    function updateFields() {
+      var usernameInput = document.getElementById('username');
+      var passwordInput = document.getElementById('password');
+      var guestCheckbox = document.getElementById('guest');
+      var registerCheckbox = document.getElementById('register');
+
+      if (guestCheckbox.checked) {
+        usernameInput.value = 'Guest';
+        usernameInput.disabled = true;
+        passwordInput.value = '';
+        passwordInput.disabled = true;
+        registerCheckbox.disabled = true;
+      } else if(registerCheckbox.checked) {
+        passwordInput.value = '';
+        passwordInput.disabled = true;
+        guestCheckbox.disabled = true;
+      } else {
+        usernameInput.value = '';
+        usernameInput.disabled = false;
+        passwordInput.disabled = false;
+        guestCheckbox.disabled = false;
+        registerCheckbox.disabled = false;
+
+      }
+    }
+    function submitForm(event) {
+      event.preventDefault();
+      var usernameInput = document.getElementById('username');
+      var passwordInput = document.getElementById('password');
+      var guestCheckbox = document.getElementById('guest');
+      var registerCheckbox = document.getElementById('register');
+
+      if (guestCheckbox.checked) {
+        window.location.href = "index.html?username=guest" + String(Math.round(Math.random() * 10000));
+      } else if (registerCheckbox.checked) {
+        var username = encodeURIComponent(usernameInput.value)
+        socket.emit("register", username);
+        socket.on("register", (result) => {
+          if (result == "the username already exists") {
+            alert(result)
+            location.reload()
+          } else {
+            passwordInput.value = result;
+            alert("you'r password is:\n" + result)
+            alert("you'l find it in the domain of the chat")
+            window.location.href = "index.html?username=" + username + "&password=" + result;
+          }
+          
+        })
+      } else {
+        var username = encodeURIComponent(usernameInput.value);
+        var password = encodeURIComponent(passwordInput.value);
+        socket.emit("login", username, password);
+        socket.on("login", (result) => {
+          if (result) {
+            window.location.href = "index.html?username=" + username + "&password=" + password;
+          }
+          else {
+            location.reload()
+          }
+        })
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The_Hub</title>
+  <style>
+    body {
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .box-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: rgba(44, 62, 80, 0.6);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .box:hover {
+      background-color: rgba(52, 73, 94, 0.8);
+      transform: scale(1.1);
+    }
+
+    .box-icon {
+      font-size: 50px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .box-label {
+      color: #fff;
+      font-size: 16px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="box-container">
+    <div class="box" onclick="navigateTo('faq.html')" style="background-image: url('website1-theme.jpg')">
+      <span class="box-icon">❔</span>
+      <span class="box-label">FAQ.</span>
+    </div>
+
+    <div class="box" onclick="navigateTo('web_users.html')" style="background-image: url('website2-theme.jpg')">
+      <span class="box-icon">🤵</span>
+      <span class="box-label">Members</span>
+    </div>
+
+    <div class="box" onclick="navigateTo('privacy.html')" style="background-image: url('website3-theme.jpg')">
+      <span class="box-icon">🎥</span>
+      <span class="box-label">Privacy page</span>
+    </div>
+  </div>
+
+  <script>
+    function navigateTo(url) {
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>

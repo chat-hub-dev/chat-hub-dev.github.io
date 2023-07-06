@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NGINX Error Page</title>
+  <style>
+    body {
+      background-color: #f7f7f7;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #777;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .error-code {
+      color: #333;
+      font-size: 60px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .home-link {
+      color: #333;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    .home-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Oops! Something went wrong.</h1>
+    <p class="error-code">500</p>
+    <p>We're sorry, but there was an internal server error. Please try again later.</p>
+    <p>You can go back to the <a class="home-link" href="/">homepage</a> or contact our support team for assistance.</p>
+  </div>
+</body>
+</html>
