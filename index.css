@@ -134,10 +134,7 @@ p {
     font-family: "Lexend";
     color: white;
     width: calc(1000px - 14px - 100px);
-}
-.support {
-    display: none;
-    /* temporary */
+    text-shadow: 1px 1px 3px rgb(0, 0, 0);
 }
 .main-window {
     position: absolute;
@@ -149,10 +146,40 @@ p {
     padding: 20px;
     border-radius: 20px;
 }
-
-
-
-
+#login {
+    background-color:rgb(152, 152, 255);
+    color: white;
+}
+#login:hover {
+    background-color: transparent;
+}
+.header {
+    background-color: rgb(255, 214, 144);
+    border: 1px solid transparent;
+}
+.contact-alert {
+    width: max-content;
+    position: absolute;
+    left: 50%;
+    top: calc(0% - 226px);
+    transform: translateX(-50%);
+    border-radius: 20px;
+}
+#alert-title {
+    color: black;
+    font-size: 30px;
+    line-height: 0px;
+    text-align: center;
+    font-family: "Lexend";
+}
+.support {
+    text-align: center;
+}
+.body {
+    padding: 10px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.041);
+}
 
 
 
