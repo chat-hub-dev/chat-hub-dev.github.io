@@ -28,7 +28,7 @@
   </div>
 
 
-  <div class="contact-alert">
+  <div class="contact-alert" id="contact-alert">
     <div class="header">
       <h2 id="alert-title">Contact</h2>
     </div>
@@ -169,10 +169,11 @@
   <!-- frontend dev ~do not mess~ -->
 
   <script>
-    let contact_alert=document.getElementsByClassName("contact-alert");
+    let contact_alert=document.getElementsByIde("contact-alert");
     let contact_button=document.getElementById("contact");
     contact_button.addEventListener("click", () => {
-      contact_alert[0].style.transform="translate(400px)";
+      contact_alert.style.transform="translate(1000px)";
+      console.log("contact clicked");
     });
   </script>
 </body>

@@ -115,13 +115,6 @@ p {
     border-radius: 15px;
     display: flex;
 }
-#messageInput:focus {
-    transition: .4s ease;
-    background: linear-gradient(110deg, #2e2f32, #27282a);
-    box-shadow:  5px 5px 10px #171719,
-             -5px -5px 10px #3f4145;
-    color: white;
-}
 #messageInput {
     transition: .3s ease;
     border: none;
@@ -132,9 +125,20 @@ p {
     padding: 0px 20px 0px 20px;
     font-size: 20px;
     font-family: "Lexend";
-    color: white;
+    color: rgb(182, 182, 182);
     width: calc(1000px - 14px - 100px);
     text-shadow: 1px 1px 3px rgb(0, 0, 0);
+}
+#messageInput:focus {
+    transition: .4s ease;
+    /* background: linear-gradient(110deg, #2e2f32, #27282a);
+    box-shadow:  5px 5px 10px #171719,
+             -5px -5px 10px #3f4145;
+    color: white; */
+    background: #2B2C2F;
+    box-shadow: inset 4px 4px 8px #252528,
+            inset -4px -4px 8px #313336;
+    text-shadow: 3px 3px 3px #00000085;
 }
 .main-window {
     position: absolute;
