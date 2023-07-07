@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chat_Hub</title>
+  <title>Chat Hub - A Secure Place to Chat</title>
   <link rel="stylesheet" href="index.css">
-  <style>
-    #chatLog {
-      background-color: #222325;
-      height: 100px;
-      width: 100px;
-    }
-  </style>
+  <link rel="icon" href="Assets/chat_hub_logo.png">
+
 </head>
 <body>
   <nav>
     <header>
       <h1>Chat_Hub</h1>
       <div class="nav-buttons">
-        <button id="contact">contact</button>
-        <button id="faq">FAQ</button>
+        <button id="contact" class="nav-button">contact</button>
+        <button id="faq" class="nav-button" onclick="window.open('faq.html', '_blank')">FAQ</button>
       </div>
     </header>
   </nav>
 
-  <p class="mono">For support: DM jonigrin on Discord</p>
-  <p class="mono">Elliot_Owner [<span class="front-end">FRONTEND</span> DEV AND OWNER]</p>
-  <p class="mono">thejoni [<span class="back-end">BACKEND</span> DEV AND CO-OWNER]</p>
-  <p class="mono">TheKodingKat [<span class="front-end">FRONTEND</span> DEV and CO-OWNER]</p>
-
-  <div id="chatLog"></div>
-  
-  <div class="input-container">
-    <input type="text" id="messageInput" placeholder="Type your message here..." />
-    <button onclick="sendMessage()">Send</button>
-    <button onclick="window.location.href = 'login_page.html';">🔑Login</button>
-    <button onclick="window.open('the_hub.html', '_blank')">👀Other</button>
+  <div class="support">
+    <p class="mono">For support: DM jonigrin on Discord</p>
+    <p class="mono">Elliot_Owner [<span class="front-end">FRONTEND</span> DEV AND OWNER]</p>
+    <p class="mono">thejoni [<span class="back-end">BACKEND</span> DEV AND CO-OWNER]</p>
+    <p class="mono">TheKodingKat [<span class="front-end">FRONTEND</span> DEV and CO-OWNER]</p>
   </div>
+  
+  <div class="main-window">
+    <div id="chatLog"></div>
+    <div class="input-container">
+      <input type="text" id="messageInput" placeholder="Type your message here..." />
+      <button id="send" onclick="sendMessage()"><img id="send_img" src="Assets/send_message.png" /></button>
+    </div>
+  </div>
+    <!-- <button onclick="window.location.href = 'login_page.html';">🔑Login</button>
+    <button onclick="window.open('the_hub.html', '_blank')">👀Other</button> -->
 
   <!-- JS SHIT -->
 

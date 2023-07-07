@@ -11,14 +11,15 @@
     }
 
     .container {
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 20px;
+      width: 800px;
+      min-width: 500px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px 20px 10px 20px;
       background-color: rgba(44, 62, 80, 0.6);
       border-radius: 10px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      position: relative;
     }
 
     .question {
@@ -53,22 +54,6 @@
       margin: 0;
     }
 
-    .back-button-box {
-      position: absolute;
-      top: 22px;
-      left: -65px;
-    }
-
-    .back-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: rgba(44, 62, 80, 0.6);
-      border-radius: 5px;
-      color: #fff;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-
     .back-button:hover {
       background-color: rgba(52, 73, 94, 0.8);
     }
@@ -76,9 +61,6 @@
 </head>
 <body>
   <div class="container">
-    <div class="back-button-box">
-      <a class="back-button" href="users.html">Back</a>
-    </div>
 
     <div class="question" onclick="toggleAnswer(1)">❔ What is the purpose of this website?</div>
     <div class="answer" id="answer-1">

@@ -1,26 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
+
 /* <!-- 3102121720 --> */
 
 /* DO NOT DELETE THIS FILE */
 
 /* STYLING FOR INDEX.HTML (MAIN CHAT FILE) */
 
+html {
+    height: 100vh;
+}
+
 @font-face {
     font-family: "Mono Font";
     src: url("Fonts/MononokiNerdFontMono-Regular.ttf");
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
-
 body {
     margin: 0px;
     background-color: #121315;
+    height: 100%;
 }
 nav {
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
+    box-shadow: 0px 4px #121315
 }
 .mono {
     font-family: "Mono Font";
@@ -34,17 +39,32 @@ nav {
 header {
     height: 100px;
     width: 90%;
-    border: 1px solid red;
 }
 header {
     display: flex;
 }
 .nav-buttons {
-    border: 1px solid red;
     display: flex;
     align-items: center;
-    position: relative;
-    right: 0px;
+    position: absolute;
+    right: 5%;
+    height: 100px;
+}
+.nav-button {
+    transition: .3s ease;
+    margin: 10px;
+    font-family: "Mono Font";
+    font-size: 20px;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+.nav-button:hover {
+    transition: .3s ease;
+    background-color: transparent;
+    color: white;
 }
 nav > header> h1 {
     color: white;
@@ -57,6 +77,79 @@ nav > header> h1 {
 p {
     color: white;
 }
+#chatLog {
+    background-color: #222325;
+    height: 600px;
+    width: 1000px;
+    border-radius: 20px;
+}
+#send {
+    transition: .2s ease;
+    background-color: rgb(91, 91, 255);
+    height: 45px;
+    width: 80px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    box-shadow: 0px 0px 15px -2px #6363e6;
+}
+#send:hover {
+    box-shadow: 0px 0px 10px #6363e6;
+}
+#send_img {
+    transition: .3s ease;
+    height: 40px;
+    margin-top: 1px;
+}
+#send:hover #send_img {
+    transition: .3s ease;
+    scale: .9;
+}
+.input-container {
+    margin-top: 15px;
+    background-color: #2B2C2F;
+    width: max-content;
+    border: none;
+    padding: 12px;
+    border-radius: 15px;
+    display: flex;
+}
+#messageInput:focus {
+    transition: .4s ease;
+    background: linear-gradient(110deg, #2e2f32, #27282a);
+    box-shadow:  5px 5px 10px #171719,
+             -5px -5px 10px #3f4145;
+    color: white;
+}
+#messageInput {
+    transition: .3s ease;
+    border: none;
+    outline: none;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #2B2C2F;
+    padding: 0px 20px 0px 20px;
+    font-size: 20px;
+    font-family: "Lexend";
+    color: white;
+    width: calc(1000px - 14px - 100px);
+}
+.support {
+    display: none;
+    /* temporary */
+}
+.main-window {
+    position: absolute;
+    left: 50%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+    background-color: #1C1D20;
+    width: max-content;
+    padding: 20px;
+    border-radius: 20px;
+}
+
 
 
 

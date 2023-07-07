@@ -4,9 +4,11 @@
 <head>
   <title>Login</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap');
+
     body {
-      background-color: #242424;
-      font-family: Arial, sans-serif;
+      font-family: "Lexend", "Mono Font";
+      background-color: #121315;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -14,6 +16,7 @@
     }
 
     .login-container {
+      width: 400px;
       background-color: #2c2a2a;
       color: #fff;
       border-radius: 10px;
@@ -23,12 +26,13 @@
     }
 
     h1 {
-      color: #00b9b9;
+      color: #597CF8;
     }
 
     label {
       display: block;
       margin-bottom: 10px;
+      font-family: "Lexend";
     }
 
     input[type="text"], input[type="password"] {
@@ -40,7 +44,7 @@
 
     input[type="submit"] {
       padding: 10px 20px;
-      background-color: #00b9b9;
+      background-color: #597CF8;
       color: #fff;
       border: none;
       border-radius: 5px;
@@ -48,31 +52,53 @@
     }
 
     input[type="submit"]:hover {
-      background-color: #009a9a;
+      background-color: #597CF8;
     }
+
+    .inline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    input[type="checkbox"] {
+      width: 25px;
+      aspect-ratio: 1 / 1;
+      border: 100px solid red
+    }
+
   </style>
 </head>
 <body>
   <div class="login-container">
     <h1>Login</h1>
     <form id="loginForm" onsubmit="submitForm(event)">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
       <br><br>
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" required>
       <br><br>
-      <label for="guest">Continue as a guest:</label>
-      <input type="checkbox" id="guest" name="guest" onchange="updateFields()">
+      <div class="inline">
+        <label for="guest">Continue as a guest:</label>
+        <input type="checkbox" id="guest" name="guest" onchange="updateFields()">
+      </div>
       <br><br>
-      <label for="register">register:</label>
-      <input type="checkbox" id="register" name="register" onchange="updateFields()">
+      <div class="inline">
+        <label for="register">Sign Up:</label>
+        <input type="checkbox" id="register" name="register" onchange="updateFields()">
+      </div>
       <br><br>
       <input type="submit" value="Login">
     </form>
   </div>
   <script src="/socket.io/socket.io.js"></script>
   <script>
+
+    // who tf doesn't use semicolons?
+
     const socket = io();
     var username = "";
 
@@ -128,6 +154,7 @@
       } else {
         var username = encodeURIComponent(usernameInput.value);
         var password = encodeURIComponent(passwordInput.value);
+
         socket.emit("login", username, password);
         socket.on("login", (result) => {
           if (result) {
